@@ -1,0 +1,6 @@
+framework module Pods_Beuty_Shop {
+  umbrella header "Pods-Beuty Shop-umbrella.h"
+
+  export *
+  module * { export * }
+}
