@@ -35,6 +35,13 @@ struct ProductColors: Codable {
     let colour_name: String?
 }
 
+struct User: Codable {
+    var phoneNumber: String?
+    var nickName: String?
+    var email: String?
+    var firstName: String?
+}
+
 struct UserActions {
     let productsName: String
     let producrtsURL: String

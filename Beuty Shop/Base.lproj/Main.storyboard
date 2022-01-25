@@ -12,26 +12,30 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Beuty_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Beuty_Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your Phone Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDx-DH-Uy8">
-                                <rect key="frame" x="30" y="125" width="353" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your Phone Number" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UDx-DH-Uy8">
+                                <rect key="frame" x="30" y="125" width="353" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99215686319999996" green="0.96470588450000005" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" smartInsertDeleteType="no" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" returnKeyType="done" smartInsertDeleteType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ewX-E4-aG8"/>
+                                    <outlet property="pasteDelegate" destination="BYZ-38-t0r" id="DML-Ry-LEj"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Wh-Ic-vpj">
-                                <rect key="frame" x="185" y="180" width="198" height="44"/>
+                                <rect key="frame" x="185" y="205" width="198" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40387946920000001" blue="0.93377854189999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7Y-h3-vc3"/>
-                                    <segue destination="Tw7-sc-YJy" kind="presentation" id="5sv-Ac-L8g"/>
+                                    <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmR-as-bAb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -41,6 +45,7 @@
                     <connections>
                         <outlet property="loginButton" destination="1Wh-Ic-vpj" id="Oil-rM-Ydd"/>
                         <outlet property="loginTF" destination="UDx-DH-Uy8" id="daV-zL-GaK"/>
+                        <segue destination="Tw7-sc-YJy" kind="show" identifier="showAuth" id="L3e-q7-DtI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -61,8 +66,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vPN-20-u6F">
+                                <rect key="frame" x="55" y="209" width="305" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XH8-TY-Aqg">
+                                <rect key="frame" x="55" y="296" width="305" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNU-wY-86m">
-                                <rect key="frame" x="168" y="181" width="192" height="40"/>
+                                <rect key="frame" x="168" y="397" width="192" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99415770250000002" green="0.77822951770000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -75,6 +92,7 @@
                         <viewLayoutGuide key="safeArea" id="oeP-S6-dfC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wO7-tq-8Hb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udR-Uc-nCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4Kb-af-1Ua">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" toolbarHidden="NO" id="wJk-zu-ZHa" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" toolbarHidden="NO" id="wJk-zu-ZHa" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="PeS-DR-Gk7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xh6-st-pze">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -101,10 +119,61 @@
             </objects>
             <point key="canvasLocation" x="1359" y="108"/>
         </scene>
-        <!--Categories View Controller-->
+        <!--Item 2-->
+        <scene sceneID="ly0-Re-Wem">
+            <objects>
+                <viewController id="Y7v-yo-Aug" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7JJ-Ay-4HB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="thD-aZ-7Q9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="xk8-Lb-9G4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="122-Cm-wsn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2029" y="905"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="LwJ-C8-qZb">
+            <objects>
+                <viewController id="GBn-0r-oCc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Y1-EP-2IP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pRZ-W8-73G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="2O7-TR-tJ6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TCR-L2-63P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2029" y="108"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="1p5-FQ-Ff4">
+            <objects>
+                <tabBarController id="Vfk-UE-LfV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="asw-Ue-QwF"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6kQ-HO-B4i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="GBn-0r-oCc" kind="relationship" relationship="viewControllers" id="u1E-vH-IkQ"/>
+                        <segue destination="Y7v-yo-Aug" kind="relationship" relationship="viewControllers" id="Gwh-uD-Y5Y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xg-Do-rJ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1329" y="471"/>
+        </scene>
+        <!--Cosmetics-->
         <scene sceneID="Flo-fu-9i0">
             <objects>
-                <collectionViewController id="z0O-f5-dal" customClass="CategoriesViewController" customModule="Beuty_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="z0O-f5-dal" customClass="CategoriesViewController" customModule="Beuty_Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="IN7-26-Mqz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +217,13 @@
                             <outlet property="delegate" destination="z0O-f5-dal" id="BER-ZQ-NRq"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="KVZ-h3-JIQ"/>
+                    <navigationItem key="navigationItem" title="Cosmetics" id="2Dv-Dk-zXt">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" image="person.crop.circle.fill.badge.xmark" catalog="system" id="leo-uB-ge8">
+                            <connections>
+                                <segue destination="Vfk-UE-LfV" kind="show" id="LVM-90-BmW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="7bj-uQ-bZ8" kind="show" identifier="showSegue" id="Ru9-Iv-THe"/>
                     </connections>
@@ -160,19 +235,14 @@
         <!--Product View Controller-->
         <scene sceneID="PCW-Tn-PQu">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="7bj-uQ-bZ8" customClass="ProductViewController" customModule="Beuty_Shop" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="7bj-uQ-bZ8" customClass="ProductViewController" customModule="Beuty_Shop" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="EtF-iK-ebp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="zfn-fM-Bz4">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productInfo" rowHeight="290" id="Tcg-Nb-4Nu" customClass="ProductCell" customModule="Beuty_Shop" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="414" height="290"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="290"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tcg-Nb-4Nu" id="blm-hb-seK">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="290"/>
@@ -251,6 +321,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.crop.circle.fill.badge.xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

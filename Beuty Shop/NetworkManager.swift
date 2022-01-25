@@ -36,7 +36,7 @@ class NetworkManager {
     }
     
     
-    func postRequest(with data: Cosmetic, to url: String, completion: @escaping(Result<Any, NetworkErrors>) -> Void) {
+    func postRequest(with data: User, to url: String, completion: @escaping(Result<Any, NetworkErrors>) -> Void) {
         guard let url = URL(string: url) else {
             completion(.failure(.invalidUrl))
             return
@@ -62,7 +62,41 @@ class NetworkManager {
 
             
             do {
-                let course = try JSONDecoder().decode(Cosmetic.self, from: data)
+                let course = try JSONDecoder().decode(User.self, from: data)
+                completion(.success(course))
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
+    
+    func postRequestPhoneNumber(with data: User, to url: String, completion: @escaping(Result<Any, NetworkErrors>) -> Void) {
+        guard let url = URL(string: url) else {
+            completion(.failure(.invalidUrl))
+            return
+        }
+        
+        guard let courseData = try? JSONEncoder().encode(data) else {
+            completion(.failure(.noData))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = courseData
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                completion(.failure(.noData))
+                print(error?.localizedDescription ?? "No error description")
+                return
+            }
+
+            
+            do {
+                let course = try JSONDecoder().decode(User.self, from: data)
                 completion(.success(course))
             } catch {
                 completion(.failure(.decodingError))
